@@ -15,17 +15,7 @@ const httpClient = (url, options = {}) => {
     options.headers = new Headers({ Accept: 'application/json' });
   }
   const token = JSON.parse(localStorage.getItem('token'));
-  options.headers.set('Authorization', `Bearer ${token}`);
   options.headers.set('Access-Control-Expose-Headers','Content-Range');
-
-  options.user = {
-    authenticated: true,
-    id : token.id ,
-    permissions : token.role,
-    id_cp_number : token.id_cp_number,
-    society_name : token.society_name,
-    user : token.user
-  }
   
   return fetchUtils.fetchJson(url, options);
 };
@@ -34,6 +24,7 @@ export const backURL ="http://localhost:5000"
 
 const dataProvider = jsonServerProvider(apiURL, httpClient);
 const dataProviderGuesser = jsonServerProvider('https://jsonplaceholder.typicode.com')
+
 function App(){
   const token = localStorage.getItem('token')
 
