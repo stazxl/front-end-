@@ -15,11 +15,11 @@ import jsonServerProvider from 'ra-data-json-server';
 import{ ItemsList, ItemsShow,ItemsCreate,ItemsEdit } from './Page/Items/Items.js';
 
 //Header
- const httpClient = (url, options = {}) => {
- if (!options.headers) {
+const httpClient = (url, options = {}) => {
+if (!options.headers) {
     options.headers = new Headers({ Accept: 'application/json' });
   }
-   options.headers.set('Access-Control-Expose-Headers','Content-Range');
+  options.headers.set('Access-Control-Expose-Headers','Content-Range');
   
   return fetchUtils.fetchJson(url, options);
 };
