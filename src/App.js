@@ -6,28 +6,33 @@ import {
   Resource,
 } from 'react-admin';
 
-//Import of our dataProvider function
+
 import jsonServerProvider from 'ra-data-json-server';
+//Import of our dataProvider function
+
+
+//list et methode 
+import{ ItemsList, ItemShow,ItemsCreate,ItemsEdit } from './Page/Items/Items.js';
 
 //Header
-// const httpClient = (url, options = {}) => {
-//   if (!options.headers) {
-//     options.headers = new Headers({ Accept: 'application/json' });
-//   }
-//   options.headers.set('Access-Control-Expose-Headers','Content-Range');
+ const httpClient = (url, options = {}) => {
+ if (!options.headers) {
+    options.headers = new Headers({ Accept: 'application/json' });
+  }
+   options.headers.set('Access-Control-Expose-Headers','Content-Range');
   
-//   return fetchUtils.fetchJson(url, options);
-// };
+  return fetchUtils.fetchJson(url, options);
+};
 
 export const backURL ="http://localhost:5000"
 
-//const dataProvider = jsonServerProvider(backURL, httpClient);
-const dataProviderGuesser = jsonServerProvider('https://jsonplaceholder.typicode.com')
+const dataProvider = jsonServerProvider(backURL, httpClient);
 
+//Tout le monde peut effectuer des requêtes
 function App(){
   return (
-    <Admin dataProvider={dataProviderGuesser}>        
-      <Resource name="Items" list={ListGuesser}/>
+    <Admin dataProvider={dataProvider}>        
+      <Resource name="Items" create={ItemsCreate} list={ItemsList} show={ItemShow} edit={ItemsEdit} />
     </Admin>
   )
 }
