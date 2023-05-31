@@ -12,7 +12,7 @@ import jsonServerProvider from 'ra-data-json-server';
 
 
 //list et methode 
-import{ ItemsList, ItemShow,ItemsCreate,ItemsEdit } from './Page/Items/Items.js';
+import{ ItemsList, ItemsShow,ItemsCreate,ItemsEdit } from './Page/Items/Items.js';
 
 //Header
  const httpClient = (url, options = {}) => {
@@ -32,7 +32,7 @@ const dataProvider = jsonServerProvider(backURL, httpClient);
 function App(){
   return (
     <Admin dataProvider={dataProvider}>        
-      <Resource name="Items" create={ItemsCreate} list={ItemsList} show={ItemShow} edit={ItemsEdit} />
+      <Resource name="Items" create={ItemsCreate} list={ItemsList} show={ItemsShow} edit={ItemsEdit} />
     </Admin>
   )
 }
