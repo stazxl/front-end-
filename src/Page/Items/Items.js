@@ -13,6 +13,9 @@ import {
     SimpleForm,
     TextField, 
     TextInput,
+    EditButton,
+    ShowButton,
+    SimpleShowLayout
 } from 'react-admin';
 
 export const ItemsCreate = () => (
@@ -36,26 +39,34 @@ export const ItemsList = () => (
             <NumberField source="price" />
             <NumberField source="quantity" />
             <DateField source="updatedAt" />
+            <EditButton/>
+            <ShowButton/>
         </Datagrid>
     </List>
 );
 
 export const ItemsShow = () => (
     <Show>
-        <TextField source="id" />
-        <TextField source="title" />
-        <DateField source="published_at" />
-        <TextField source="category" />
-        <BooleanField source="commentable" />        
+        <SimpleShowLayout>
+            <NumberField source="id" />
+        <TextField source="name" />
+            <NumberField source="price" />
+            <TextField source="type" />
+            <TextField source="color" />
+            <NumberField source="quantity" />
+        </SimpleShowLayout>       
     </Show>
 );
 
 export const ItemsEdit = () => (
     <Edit>
-        <TextInput source="id" disabled />
-        <TextInput source="title" />
-        <DateInput source="published_at" />
-        <TextInput source="category" />
-        <BooleanInput source="commentable" />
+        <SimpleForm>
+            <NumberInput source="id" />
+            <TextInput source="name" />
+            <NumberInput source="price" />
+            <TextInput source="type" />
+            <TextInput source="color" />
+            <NumberInput source="quantity" />
+        </SimpleForm>
     </Edit>
 );
