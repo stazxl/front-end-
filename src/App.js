@@ -36,8 +36,7 @@ function App(){
   return (
     <Admin dataProvider={dataProvider}>        
       <Resource name="Items" create={ItemsCreate} list={ItemsList} show={ItemsShow} edit={ItemsEdit} />
-       <Resource name="formulaire" list={MyForm} />
-       <Resource name="formulaire2" list={formulaire2List} create={formulaire2Create} show={formulaire2Show} edit={formulaire2Edit} />
+       <Resource name="formulaires2" list={formulaire2List} create={formulaire2Create} show={formulaire2Show} edit={formulaire2Edit} />
       <Resource name="tableau de bord" list={ListGuesser} />
       <Resource name="paramètre" list={ListGuesser} />
     </Admin>
