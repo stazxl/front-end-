@@ -13,9 +13,10 @@ import jsonServerProvider from 'ra-data-json-server';
 
 //list et methode 
 import{ ItemsList, ItemsShow,ItemsCreate,ItemsEdit } from './Page/Items/Items.js';
-import SignUp from './Page/formulaire/formulaire.js';
+
 import MyForm from './Page/formulaire/formulaire.js';
 
+import{ formulaire2List, formulaire2Show,formulaire2Create,formulaire2Edit } from './Page/formulaire/formulaire2.js';
 //Header
 const httpClient = (url, options = {}) => {
 if (!options.headers) {
@@ -36,6 +37,7 @@ function App(){
     <Admin dataProvider={dataProvider}>        
       <Resource name="Items" create={ItemsCreate} list={ItemsList} show={ItemsShow} edit={ItemsEdit} />
        <Resource name="formulaire" list={MyForm} />
+       <Resource name="formulaire2" list={formulaire2List} create={formulaire2Create} List={formulaire2List} show={formulaire2Show} edit={formulaire2Edit} />
       <Resource name="tableau de bord" list={ListGuesser} />
       <Resource name="paramètre" list={ListGuesser} />
     </Admin>
