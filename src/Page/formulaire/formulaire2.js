@@ -21,7 +21,7 @@ export const formulaire2Create = () => (
         <Avatar
           alt="assur abo"
           src="https://media.licdn.com/dms/image/C4D0BAQEftEYsjKJT8w/company-logo_200_200/0/1547906454904?e=2147483647&v=beta&t=pqbkplLUpBA3yVh8sO6UBDcvqa1gTuzQwX0kJ63ll_8"
-          sx={{ width: 100, height: 100, marginBottom: '1rem' }}
+          sx={{ width: 200, height: 200, marginBottom: '0rem' }}
         />
 
         <h1>Information sur le prospect :</h1>
@@ -83,7 +83,7 @@ export const formulaire2Create = () => (
             <NumberInput source="accident" label="Accident" />
           </Box>
           <Box sx={{ marginRight: '1rem' }}>
-            <NumberInput source="suspensionPro	" label="Suspension professionnelle" />
+            <NumberInput source="suspensionPro" label="Suspension professionnelle" />
           </Box>
         </Box>
 
@@ -128,7 +128,8 @@ export const formulaire2List = () => (
         <NumberInput source="suspensionPro" label="suspension pro" />
         <NumberInput source="lignesImpayeesMois" label="lignes impayées par mois" />
         <DateInput source="date" label="Date" />
-            <ShowButton/>
+        <EditButton/>
+        <ShowButton/>
         </Datagrid>
     </List>
 );
@@ -163,7 +164,7 @@ export const formulaire2Edit = () => (
         <Avatar
           alt="assur abo"
           src="https://media.licdn.com/dms/image/C4D0BAQEftEYsjKJT8w/company-logo_200_200/0/1547906454904?e=2147483647&v=beta&t=pqbkplLUpBA3yVh8sO6UBDcvqa1gTuzQwX0kJ63ll_8"
-          sx={{ width: 100, height: 100, marginBottom: '1rem' }}
+          sx={{ width: 200, height: 200, marginBottom: '0rem' }}
         />
 
         <h1>Information sur le prospect :</h1>
@@ -225,7 +226,7 @@ export const formulaire2Edit = () => (
             <NumberInput source="accident" label="Accident" />
           </Box>
           <Box sx={{ marginRight: '1rem' }}>
-            <NumberInput source="suspensionPro	" label="Suspension professionnelle" />
+            <NumberInput source="suspensionPro" label="Suspension professionnelle" />
           </Box>
         </Box>
 

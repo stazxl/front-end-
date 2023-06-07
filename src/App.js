@@ -14,7 +14,6 @@ import jsonServerProvider from 'ra-data-json-server';
 //list et methode 
 import{ ItemsList, ItemsShow,ItemsCreate,ItemsEdit } from './Page/Items/Items.js';
 
-import MyForm from './Page/formulaire/formulaire.js';
 
 import{ formulaire2List, formulaire2Show,formulaire2Create,formulaire2Edit } from './Page/formulaire/formulaire2.js';
 //Header
