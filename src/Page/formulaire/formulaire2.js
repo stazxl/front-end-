@@ -109,27 +109,18 @@ export const formulaire2Create = () => (
 );
 
 export const formulaire2List = () => (
-    <List hasCreate={true}>
+<List hasCreate={true}>
         <Datagrid>
-        <TextInput source="email" label="email" />
-        <TextInput source="prenom" label="prénom" />
-        <TextInput source="nom" label="nom" />
-        <NumberInput source="numeroTelephone" label="numéro de téléphone" />
-        <TextInput source="intitulePoste" label="intitulé du poste" />
-        <TextInput source="nomEntreprise" label="nom de l'entreprise" />
-        <NumberInput source="codePostal" label="code postal" />
-        <TextInput source="ville" label="ville" />
-        <TextInput source="urlSiteWeb" label="URL du site web" />
-        <NumberInput source="nombreAbonnes" label="nombre d'abonnés" />
-        <NumberInput source="nouveauxInscrisMois" label="nouveaux inscrits par mois" />
-        <NumberInput source="maladie" label="maladie" />
-        <NumberInput source="blessure" label="blessure" />
-        <NumberInput source="accident" label="accident" />
-        <NumberInput source="suspensionPro" label="suspension pro" />
-        <NumberInput source="lignesImpayeesMois" label="lignes impayées par mois" />
-        <DateInput source="date" label="Date" />
-        <EditButton/>
-        <ShowButton/>
+            <TextField source="nomEntreprise" label="nom de l'entreprise" />
+            <TextField source="nom" label="nom" />
+            <TextField source="prenom" label="prénom" />
+            <TextField source="email" label="email" />
+            <NumberField source="numeroTelephone" label="numéro de téléphone" />
+            <TextField source="ville" label="ville" />
+            <NumberField source="codePostal" label="code postal" />
+            <DateField source="date" label="Date" />
+            <EditButton/>
+            <ShowButton/>
         </Datagrid>
     </List>
 );
@@ -137,23 +128,23 @@ export const formulaire2List = () => (
 export const formulaire2Show = () => (
     <Show>
         <SimpleShowLayout>
-        <TextInput source="email" label="email" />
-        <TextInput source="prenom" label="prénom" />
-        <TextInput source="nom" label="nom" />
-        <NumberInput source="numeroTelephone" label="numéro de téléphone" />
-        <TextInput source="intitulePoste" label="intitulé du poste" />
-        <TextInput source="nomEntreprise" label="nom de l'entreprise" />
-        <NumberInput source="codePostal" label="code postal" />
-        <TextInput source="ville" label="ville" />
-        <TextInput source="urlSiteWeb" label="URL du site web" />
-        <NumberInput source="nombreAbonnes" label="nombre d'abonnés" />
-        <NumberInput source="nouveauxInscrisMois" label="nouveaux inscrits par mois" />
-        <NumberInput source="maladie" label="maladie" />
-        <NumberInput source="blessure" label="blessure" />
-        <NumberInput source="accident" label="accident" />
-        <NumberInput source="suspensionPro" label="suspension pro" />
-        <NumberInput source="lignesImpayeesMois" label="lignes impayées par mois" />
-        <DateInput source="date" label="Date" />
+        <TextField source="email" label="email" />
+        <TextField source="prenom" label="prénom" />
+        <TextField source="nom" label="nom" />
+        <NumberField source="numeroTelephone" label="numéro de téléphone" />
+        <TextField source="intitulePoste" label="intitulé du poste" />
+        <TextField source="nomEntreprise" label="nom de l'entreprise" />
+        <NumberField source="codePostal" label="code postal" />
+        <TextField source="ville" label="ville" />
+        <TextField source="urlSiteWeb" label="URL du site web" />
+        <NumberField source="nombreAbonnes" label="nombre d'abonnés" />
+        <NumberField source="nouveauxInscrisMois" label="nouveaux inscrits par mois" />
+        <NumberField source="maladie" label="maladie" />
+        <NumberField source="blessure" label="blessure" />
+        <NumberField source="accident" label="accident" />
+        <NumberField source="suspensionPro" label="suspension pro" />
+        <NumberField source="lignesImpayeesMois" label="lignes impayées par mois" />
+        <DateField source="date" label="Date" />
         </SimpleShowLayout>       
     </Show>
 );
