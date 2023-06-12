@@ -12,18 +12,44 @@ import {
     EditButton,
     ShowButton,
     SimpleShowLayout,
-   
-} from 'react-admin';
+    useTranslate
 
-export const formulaire2Create = () => (
+} from 'react-admin';
+import { useState } from 'react';
+
+
+  const SquareInputs = () => {
+    const [fields, setFields] = useState([{ id: 1 }]);
+  
+    const handleAddField = () => {
+      const newField = { id: fields.length + 1 };
+      setFields([...fields, newField]);
+    };
+  
+    return (
+      <div>
+        {fields.map((field) => (
+          <div key={field.id}>
+            <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+              <NumberInput source={`valeur${field.id}`} label="Valeur" />
+              <span style={{ marginLeft: '0.5rem' }}>€/mois</span>
+              <BooleanInput source={`engagement${field.id}`} label="Engagement" />
+            </Box>
+          </div>
+        ))}
+        <Button onClick={handleAddField} label="Ajouter" />
+      </div>
+    );
+  };
+  export const formulaire2Create = () => (
     <Create>
-        <SimpleForm>
+      <SimpleForm>
         <Avatar
           alt="assur abo"
           src="https://media.licdn.com/dms/image/C4D0BAQEftEYsjKJT8w/company-logo_200_200/0/1547906454904?e=2147483647&v=beta&t=pqbkplLUpBA3yVh8sO6UBDcvqa1gTuzQwX0kJ63ll_8"
           sx={{ width: 200, height: 200, marginBottom: '0rem' }}
         />
-
+  
         <h1>Information sur le prospect :</h1>
         <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
           <Box sx={{ marginRight: '1rem' }}>
@@ -39,7 +65,7 @@ export const formulaire2Create = () => (
             <NumberInput source="numeroTelephone" label="Numéro de téléphone" />
           </Box>
         </Box>
-
+  
         <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
           <Box sx={{ marginRight: '1rem' }}>
             <TextInput source="intitulePoste" label="Intitulé du poste" />
@@ -48,7 +74,7 @@ export const formulaire2Create = () => (
             <TextInput source="nomEntreprise" label="Nom de l'entreprise" />
           </Box>
         </Box>
-
+  
         <h1>Information sur l'entreprise :</h1>
         <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
           <Box sx={{ marginRight: '1rem' }}>
@@ -58,7 +84,7 @@ export const formulaire2Create = () => (
             <TextInput source="ville" label="Ville" />
           </Box>
         </Box>
-
+  
         <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
           <Box sx={{ marginRight: '1rem' }}>
             <TextInput source="urlSiteWeb" label="URL du site web" />
@@ -70,9 +96,12 @@ export const formulaire2Create = () => (
             <NumberInput source="nouveauxInscrisMois" label="Nouveaux inscrits par mois" />
           </Box>
         </Box>
-
+  
         <h2>Types d'abonnement :</h2>
+  
         <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
+          <SquareInputs />
+        </Box>
           <Box sx={{ marginRight: '1rem' }}>
             <NumberInput source="maladie" label="Maladie" />
           </Box>
@@ -82,19 +111,14 @@ export const formulaire2Create = () => (
           <Box sx={{ marginRight: '1rem' }}>
             <NumberInput source="accident" label="Accident" />
           </Box>
-          <Box sx={{ marginRight: '1rem' }}>
-            <NumberInput source="suspensionPro" label="Suspension professionnelle" />
-          </Box>
-        </Box>
-
         <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
           <NumberInput source="lignesImpayeesMois" label="Lignes impayées par mois" />
         </Box>
-
+  
         <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
           <DateInput source="date" label="Date" />
         </Box>
-
+  
         <Box sx={{ marginBottom: '1rem' }}>
           <p>
             Si vous mettez Assur Abo en place, vous préféreriez que ce soit pour tous vos clients ou seulement pour les
@@ -102,12 +126,12 @@ export const formulaire2Create = () => (
           </p>
           <BooleanInput source="active" label="Tous les abonnés" />
         </Box>
-
+  
         <Button type="submit" label="Submit" />
-        </SimpleForm>
+      </SimpleForm>
     </Create>
-);
-
+  );
+  
 export const formulaire2List = () => (
 <List hasCreate={true}>
         <Datagrid>
@@ -206,6 +230,9 @@ export const formulaire2Edit = () => (
         </Box>
 
         <h2>Types d'abonnement :</h2>
+        <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
+          <SquareInputs />
+        </Box>
         <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
           <Box sx={{ marginRight: '1rem' }}>
             <NumberInput source="maladie" label="Maladie" />
