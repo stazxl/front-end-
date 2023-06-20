@@ -75,12 +75,6 @@ function Formulaire() {
 
 export { simu, Formulaire };
 
-
-
-
-
-
-
 import React, { useState } from 'react';
 
 function SquareInput() {

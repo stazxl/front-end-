@@ -16,7 +16,7 @@ import jsonServerProvider from 'ra-data-json-server';
 //list et methode 
 import{ ItemsList, ItemsShow,ItemsCreate,ItemsEdit } from './Page/Items/Items.js';
 import{ CustomSettingsCreate,CustomSettingsList,CustomSettingsEdit } from './Page/settings/Settings';
-import{ formulaire2List, formulaire2Show,formulaire2Create,formulaire2Edit } from './Page/formulaire/formulaire2.js';
+import{ formulaire2List, formulaire2Show,Formulaire2Create,formulaire2Edit, } from './Page/formulaire/formulaire2.js';
 
 //Header
 const httpClient = (url, options = {}) => {
@@ -35,9 +35,9 @@ const dataProvider = jsonServerProvider(backURL, httpClient);
 //Tout le monde peut effectuer des requêtes
 function App(){
   return (
-    <Admin dataProvider={dataProvider}dashboard={Dashboard} DataProvider={simpleRestProvider('http://localhost:3000/')}>        
-      <Resource name="Items" create={ItemsCreate} list={ItemsList} show={ItemsShow} edit={ItemsEdit} />
-       <Resource name="formulaires2" list={formulaire2List} create={formulaire2Create} show={formulaire2Show} edit={formulaire2Edit} />
+    <Admin dataProvider={dataProvider} dashboard={Dashboard} DataProvider={simpleRestProvider('http://localhost:3000/')}>        
+      <Resource name="Items" create={ItemsCreate} list={ItemsList} show={ItemsShow} edit={ItemsEdit}  />
+       <Resource name="formulaires2" list={formulaire2List} create={Formulaire2Create} show={formulaire2Show} edit={formulaire2Edit}  />
        <Resource name="settings" list={CustomSettingsList} edit={CustomSettingsEdit} create={CustomSettingsCreate} />
     </Admin>
     
