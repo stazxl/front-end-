@@ -19,6 +19,8 @@ import {
   NumberInput,
   DateInput,
   BooleanInput,
+  BooleanField,
+  ReferenceManyField,
   Button 
 } from 'react-admin';
 
@@ -57,7 +59,7 @@ export const Formulaire2Create = () => {
 
       <h1>Information sur l'entreprise :</h1>
       <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
-      <Box sx={{ marginRight: '1rem' }}>
+        <Box sx={{ marginRight: '1rem' }}>
           <TextInput source="nomEntreprise" label="Nom de l'entreprise" />
         </Box>
         <Box sx={{ marginRight: '1rem' }}>
@@ -84,20 +86,17 @@ export const Formulaire2Create = () => {
       </Box>
       <h1>Types d'abonnement :</h1>
         <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
-          <ArrayInput source="abonnement"reference="TypesAbo">
+          <ArrayInput source="abonnement" reference="TypesAbo">
             <SimpleFormIterator inline>
               <NumberInput source="price" label=" Price" /> 
               <BooleanInput source="engagement" label=" Engagement" />
               <NumberInput source="CasMédicaux" label="Cas Médicaux" />
-               <NumberInput source="déménagement" label="Déménagement" />
+              <NumberInput source="demenagement" label="Déménagement" />
               <NumberInput source="lignesImpayeesMois" label="impayées par mois" />
               <NumberInput source="suspensionPro" label="Suspension Professionnelles" />
             </SimpleFormIterator>
           </ArrayInput>
-        </Box>     
-      <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
-        <DateInput source="date" label="Date" />
-      </Box>
+        </Box>
       <Box sx={{ marginBottom: '1rem' }}>
         <p>
           Si vous mettez Assur Abo en place, vous préféreriez que ce soit pour tous vos clients ou seulement pour les
@@ -115,7 +114,7 @@ export const Formulaire2Create = () => {
 export const formulaire2List = () => (
 
   <List hasCreate={true}>
-    <Datagrid>
+    <Datagrid rowClick='edit' bulkActionButtons={false}>
       <TextField source="nomEntreprise" label="nom de l'entreprise" />
       <TextField source="nom" label="nom" />
       <TextField source="prenom" label="prénom" />
@@ -123,8 +122,7 @@ export const formulaire2List = () => (
       <NumberField source="numeroTelephone" label="numéro de téléphone" />
       <TextField source="ville" label="ville" />
       <NumberField source="codePostal" label="code postal" />
-      <DateField source="date" label="Date" />
-      <EditButton />
+      <DateField source="createdAt" label="Date" />
       <ShowButton />
     </Datagrid>
   </List>
@@ -216,17 +214,16 @@ export const formulaire2Edit = () => (
 
       <h2>Types d'abonnement :</h2>
         <Box sx={{ marginRight: '1rem' }}>
-        <ArrayInput source="abonnement">
-            <SimpleFormIterator inline>
-              <TextInput source="name" helperText={false} />
-              <NumberInput source="price" helperText={false} /> 
-              <BooleanInput source="engagement" label=" Engagement" />
-              <NumberInput source="CasMédicaux" label="Cas Médicaux" />
-              <NumberInput source="déménagement" label="Déménagement" />
-              <NumberInput source="lignesImpayeesMois" label="Impayées par mois" />
-              <NumberInput source="suspensionPro" label="Suspensions Professionnelles" />
-            </SimpleFormIterator>
-          </ArrayInput>
+        <ReferenceManyField label="TypesAbo" reference="formulaires2" target="TypesAbo">
+              <Datagrid>
+              <NumberField source="price" helperText={false} /> 
+              <BooleanField source="engagement" label=" Engagement" />
+              <NumberField source="CasMédicaux" label="Cas Médicaux" />
+              <NumberField source="déménagement" label="Déménagement" />
+              <NumberField source="lignesImpayeesMois" label="Impayées par mois" />
+              <NumberField source="suspensionPro" label="Suspensions Professionnelles" />
+              </Datagrid>
+            </ReferenceManyField>
       </Box>
 
       <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
