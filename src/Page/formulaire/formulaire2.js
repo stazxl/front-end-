@@ -21,7 +21,8 @@ import {
   BooleanInput,
   BooleanField,
   ReferenceManyField,
-  Button 
+  Button ,
+  ReferenceField 
 } from 'react-admin';
 
 export const Formulaire2Create = () => {
@@ -90,7 +91,7 @@ export const Formulaire2Create = () => {
             <SimpleFormIterator inline>
               <NumberInput source="price" label=" Price" /> 
               <BooleanInput source="engagement" label=" Engagement" />
-              <NumberInput source="CasMédicaux" label="Cas Médicaux" />
+              <NumberInput source="CasMedicaux" label="Cas Médicaux" />
               <NumberInput source="demenagement" label="Déménagement" />
               <NumberInput source="lignesImpayeesMois" label="impayées par mois" />
               <NumberInput source="suspensionPro" label="Suspension Professionnelles" />
@@ -143,7 +144,8 @@ export const formulaire2Show = () => (
       <TextField source="urlSiteWeb" label="URL du site web" />
       <NumberField source="nombreAbonnes" label="Nombre d'abonnés" />
       <NumberField source="nouveauxInscrisMois" label="Nouveaux inscrits par mois" />
-      <NumberField source="CasMédicaux" label="Cas Médicaux" />
+      <ReferenceField source="abonnement" reference="TypesAbo" />
+      <NumberField source="CasMédicaux" label="Cas Médicaux" />      
       <NumberField source="déménagement" label="Déménagement" />
       <NumberField source="suspensionPro" label="Suspension Professionnelles" />
       <NumberField source="lignesImpayeesMois" label="lignes impayées par mois" />
@@ -213,23 +215,18 @@ export const formulaire2Edit = () => (
       </Box>
 
       <h2>Types d'abonnement :</h2>
-        <Box sx={{ marginRight: '1rem' }}>
-        <ReferenceManyField label="TypesAbo" reference="formulaires2" target="TypesAbo">
-              <Datagrid>
-              <NumberField source="price" helperText={false} /> 
-              <BooleanField source="engagement" label=" Engagement" />
-              <NumberField source="CasMédicaux" label="Cas Médicaux" />
-              <NumberField source="déménagement" label="Déménagement" />
-              <NumberField source="lignesImpayeesMois" label="Impayées par mois" />
-              <NumberField source="suspensionPro" label="Suspensions Professionnelles" />
-              </Datagrid>
-            </ReferenceManyField>
-      </Box>
-
-      <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
-        <DateInput source="date" label="Date" />
-      </Box>
-
+        <Box sx={{ marginRight: '1rem' }}> 
+        <ArrayInput source="abonnement" reference="TypesAbo">
+            <SimpleFormIterator inline>
+              <NumberInput source="price" label=" Price" /> 
+              <BooleanInput source="engagement" label=" Engagement" />
+              <NumberInput source="CasMedicaux" label="Cas Médicaux" />
+              <NumberInput source="demenagement" label="Déménagement" />
+              <NumberInput source="lignesImpayeesMois" label="impayées par mois" />
+              <NumberInput source="suspensionPro" label="Suspension Professionnelles" />
+            </SimpleFormIterator>
+          </ArrayInput>
+          </Box>
       <Box sx={{ marginBottom: '1rem' }}>
         <p>
           Si vous mettez Assur Abo en place, vous préféreriez que ce soit pour tous vos clients ou seulement pour les
