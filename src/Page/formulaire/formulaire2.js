@@ -91,7 +91,7 @@ export const Formulaire2Create = () => {
             <SimpleFormIterator inline>
               <NumberInput source="price" label=" Price" /> 
               <BooleanInput source="engagement" label=" Engagement" />
-              <NumberInput source="CasMedicaux" label="Cas Médicaux" />
+               <NumberInput source="CasMedicaux" label="Cas Médicaux" />
               <NumberInput source="demenagement" label="Déménagement" />
               <NumberInput source="lignesImpayeesMois" label="impayées par mois" />
               <NumberInput source="suspensionPro" label="Suspension Professionnelles" />
