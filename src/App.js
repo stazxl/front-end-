@@ -39,7 +39,7 @@ function App(){
       {/* <Resource name="Items" create={ItemsCreate} list={ItemsList} show={ItemsShow} edit={ItemsEdit}  /> */}
       <Resource name="formulaires2" list={formulaire2List} create={Formulaire2Create} show={formulaire2Show} edit={formulaire2Edit}  />
       <Resource name="simulations" list={SimulationList} edit={SimulationEdit} />
-      {/* <Resource name="settings" list={CustomSettingsList} edit={CustomSettingsEdit} create={CustomSettingsCreate} /> */}
+      {<Resource name="settings" list={CustomSettingsList} edit={CustomSettingsEdit} create={CustomSettingsCreate} /> }
     </Admin>
     
   )

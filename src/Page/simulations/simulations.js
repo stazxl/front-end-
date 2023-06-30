@@ -20,6 +20,7 @@ export const SimulationList = () => {
     </Box>
   );
 };
+
 export const SimulationEdit = () => {
   const speedCanvasRef = useRef(null);
   const params = useParams();
@@ -32,15 +33,13 @@ export const SimulationEdit = () => {
     method: "get",
   };
   const requestSimulations = async () => {
-    const response = await axios.get(urlData.url);
+    const response = await axios (urlData);
     return response.data;
   };
-
-  const { isLoading, isError, data, error } = useQuery(
-    ["SimulationProviders n° " + params.id],
-    requestSimulations
-  );
-
+  const { isLoading, isError, data, error } = useQuery({
+    queryKey: ["SimulationProviders n° " + params.id],
+    queryFn: () => requestSimulations,
+  });
   useEffect(() => {
     if (!isLoading && !isError && data) {
       const speedData = {
