@@ -87,7 +87,7 @@ export const FormulairesCreate = () => {
       </Box>
       <h1>Types d'abonnement :</h1>
         <Box sx={{ display: 'flex', marginBottom: '1rem' }}>
-          <ArrayInput source="abonnement" reference="TypesAbo">
+          <ArrayInput source="abonnements" reference="Abonnements">
             <SimpleFormIterator inline>
               <NumberInput source="price" label=" Price" /> 
               <BooleanInput source="engagement" label=" Engagement" />
