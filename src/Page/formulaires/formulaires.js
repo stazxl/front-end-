@@ -25,7 +25,7 @@ import {
   ReferenceField 
 } from 'react-admin';
 
-export const Formulaire2Create = () => {
+export const FormulairesCreate = () => {
   return (
   <Create>
     <SimpleForm>
@@ -112,7 +112,7 @@ export const Formulaire2Create = () => {
 );
 };
 
-export const formulaire2List = () => (
+export const FormulairesList = () => (
 
   <List hasCreate={true}>
     <Datagrid rowClick='edit' bulkActionButtons={false}>
@@ -129,7 +129,7 @@ export const formulaire2List = () => (
   </List>
 );
 
-export const formulaire2Show = () => (
+export const FormulairesShow = () => (
   <Show>
     <SimpleShowLayout>
       <TextField source="email" label="Email" />
@@ -154,7 +154,7 @@ export const formulaire2Show = () => (
   </Show>
 );
 
-export const formulaire2Edit = () => (
+export const FormulairesEdit = () => (
   <Edit>
     <SimpleForm>
       <Avatar

@@ -13,9 +13,7 @@ import Dashboard from './Page/dashboard/dashboard';
 import jsonServerProvider from 'ra-data-json-server';
 
 //list et methode 
-import{ ItemsList, ItemsShow,ItemsCreate,ItemsEdit } from './Page/Items/Items.js';
-import{ CustomSettingsCreate,CustomSettingsList,CustomSettingsEdit } from './Page/settings/Settings';
-import{ formulaire2List, formulaire2Show,Formulaire2Create,formulaire2Edit, } from './Page/formulaire/formulaire2.js';
+import{ FormulairesList, FormulairesShow,FormulairesCreate,FormulairesEdit, } from './Page/formulaires/formulaires.js';
 import { SimulationList,SimulationEdit } from './Page/simulations/simulations';
 
 //Header
@@ -37,9 +35,9 @@ function App(){
   return (
     <Admin dataProvider={dataProvider} dashboard={Dashboard} DataProvider={simpleRestProvider('http://localhost:3000/')}>        
       {/* <Resource name="Items" create={ItemsCreate} list={ItemsList} show={ItemsShow} edit={ItemsEdit}  /> */}
-      <Resource name="formulaires2" list={formulaire2List} create={Formulaire2Create} show={formulaire2Show} edit={formulaire2Edit}  />
+      <Resource name="formulaires" list={FormulairesList} create={FormulairesCreate} show={FormulairesShow} edit={FormulairesEdit}  />
       <Resource name="simulations" list={SimulationList} edit={SimulationEdit} />
-      {<Resource name="settings" list={CustomSettingsList} edit={CustomSettingsEdit} create={CustomSettingsCreate} /> }
+      {/* <Resource name="settings" list={CustomSettingsList} edit={CustomSettingsEdit} create={CustomSettingsCreate} /> */}
     </Admin>
     
   )
