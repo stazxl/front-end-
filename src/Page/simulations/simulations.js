@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { List, Datagrid, TextField } from "react-admin";
+import { List, Datagrid, TextField, FileField } from "react-admin";
 import { useParams } from "react-router-dom";
 import { Chart } from "chart.js";
 import { Box } from "@mui/material";
@@ -41,9 +41,17 @@ export const SimulationEdit = () => {
   } else if (isError) {
     return <span>Error: {error.message}</span>;
   } else {
-    console.log("data", data.data);
-    const montantTotal = data.data.casMedicaux * data.data.prixAbonnement;
+    const clubData = data.data
+    const aboData = clubData.abonnements
+    console.log('clubData',clubData)
+    console.log('aboData',aboData)
+    // console.log('data.data',data.data)
+    const montantTotal = data.data.casMedicaux +data.data.déménagement +data.data.lignesImpayeesMois +data.data.suspensionPro *data.data.prixAbonnement;
 
+
+
+
+    
     // const speedData = {
     //   labels: ["0", "10", "20", "30", "40", "50", "60"],
     //   datasets: [
@@ -51,7 +59,7 @@ export const SimulationEdit = () => {
     //       label: "test",
     //       data: [
     //         0,
-    //         data.casMedicaux,
+    //         data.casMedicaux, 
     //         data.demenagement,
     //         data.lignesImpayeesMois,
     //         data.lignesImpayeesMois,
@@ -76,6 +84,8 @@ export const SimulationEdit = () => {
     //   type: "line",
     //   data: speedData,
     // });
+
+
 
     return (
       <div>

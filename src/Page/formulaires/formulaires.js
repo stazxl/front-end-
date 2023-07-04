@@ -143,13 +143,7 @@ export const FormulairesShow = () => (
       <TextField source="ville" label="ville" />
       <TextField source="urlSiteWeb" label="URL du site web" />
       <NumberField source="nombreAbonnes" label="Nombre d'abonnés" />
-      <NumberField source="nouveauxInscrisMois" label="Nouveaux inscrits par mois" />
-      <ReferenceField source="abonnement" reference="TypesAbo" />
-      <NumberField source="CasMédicaux" label="Cas Médicaux" />      
-      <NumberField source="déménagement" label="Déménagement" />
-      <NumberField source="suspensionPro" label="Suspension Professionnelles" />
-      <NumberField source="lignesImpayeesMois" label="lignes impayées par mois" />
-      <DateField source="date" label="Date" />
+      <NumberField source="nouveauxInscrisMois" label="Nouveaux inscrits par mois" />s
     </SimpleShowLayout>
   </Show>
 );
