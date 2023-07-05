@@ -21,8 +21,8 @@ export const SimulationList = () => {
 };
 
 export const SimulationEdit = () => {
-  const params = useParams();
-
+  const params = useParams(0);
+  const speedCanvasRef = useRef(); 
   // Getting simulation info
   const urlData = {
     url: "Simulations/" + params.id,
@@ -46,53 +46,54 @@ export const SimulationEdit = () => {
     console.log('clubData',clubData)
     console.log('aboData',aboData)
     // console.log('data.data',data.data)
-    const montantTotal = data.data.casMedicaux +data.data.déménagement +data.data.lignesImpayeesMois +data.data.suspensionPro *data.data.prixAbonnement;
 
+    let montantTotal  = 0
+    for(let i =0;i<aboData.length;i++){
+    montantTotal =(aboData[i].CasMedicaux +aboData[i].demenagement +aboData[i].lignesImpayeesMois +aboData[i].suspensionPro) *aboData[i].price;
+    }
 
-
-
+    // le 0 est pour avoir accès au premire valeur du tableau 
     
-    // const speedData = {
-    //   labels: ["0", "10", "20", "30", "40", "50", "60"],
-    //   datasets: [
-    //     {
-    //       label: "test",
-    //       data: [
-    //         0,
-    //         data.casMedicaux, 
-    //         data.demenagement,
-    //         data.lignesImpayeesMois,
-    //         data.lignesImpayeesMois,
-    //         data.suspensionPro,
-    //         40,
-    //       ],
-    //       tension: 0.4,
-    //       cubicInterpolationMode: "monotone",
-    //       fill: false,
-    //       borderColor: "#E64A19",
-    //       backgroundColor: "transparent",
-    //       borderDash: [20, 10, 60, 10],
-    //       pointBorderColor: "#E64A19",
-    //       pointBackgroundColor: "#FFA726",
-    //       pointRadius: 5,
-    //       pointHoverRadius: 10,
-    //     },
-    //   ],
-    // };
+    /*const speedData = {
+      labels: ["0", "10", "20", "30", "40", "50", "60"],
+      datasets: [
+      {
+      label: "nb cas",
+        data: [
+        0,
+        for(let i =0;i<aboData.length;i++){
+        aboData[i].CasMedicaux,
+        aboData[i].demenagement,
+        aboData[i].lignesImpayeesMois,
+        aboData[i].suspensionPro,
+        100,
+      ],
+      tension: 0.4,
+      cubicInterpolationMode: "monotone",
+      fill: false,
+      borderColor: "#E64A19",
+      backgroundColor: "transparent",
+      borderDash: [20, 10, 60, 10],
+      pointBorderColor: "#E64A19",
+      pointBackgroundColor: "#FFA726",
+      pointRadius: 5,
+      pointHoverRadius: 10,
+      },
+      ],
+    };
 
-    // const lineChart = new Chart(speedCanvasRef.current, {
-    //   type: "line",
-    //   data: speedData,
-    // });
-
+    const lineChart = new Chart(speedCanvasRef.current, {
+      type: "line",
+      data: speedData,
+    });*/
 
 
     return (
       <div>
         <p>Montant total : {montantTotal}</p>
-        <Box sx={{ width: "800px" }}>
-          {/* <canvas ref={speedCanvasRef} /> */}
-        </Box>
+        {/* <Box sx={{ width: "800px" }}>
+          {<canvas ref={speedCanvasRef} /> }
+        </Box> */}
       </div>
     );
   }
