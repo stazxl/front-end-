@@ -9,11 +9,13 @@ import {
   ListButton,
   EditButton,
   DeleteButton,
+  TextField,
   Toolbar,
   SaveButton,
   CreateButton,
   Datagrid,
   required,
+  BooleanField,
 } from "react-admin";
 import SettingsIcon from "@mui/icons-material/Settings";
 
@@ -27,34 +29,33 @@ export const CustomSettingsToolbar = (props) => (
 
 // Composant de la liste des réglages
 export const CustomSettingsList = (props) => (
-  <List title="Réglages" {...props}>
-    <Datagrid>
-      <TextInput source="id" label="ID" />
-      <TextInput source="parametre1" label="Paramètre 1" />
-      <TextInput source="parametre2" label="Paramètre 2" />
-      <EditButton />
-      <DeleteButton />
+  <List title="Modifier Réglage" {...props}>
+    <Datagrid rowClick='edit' bulkActionButtons={false}>
+      <BooleanField source="engageOuNon" label="Est engagé ?" />
+      <TextField source="début_CasMedicaux" label="début des cas médicaux" />
+      <TextField source="début_demenagement" label="début des déménagement" />
+      <TextField source="début_lignesImpayeesMois" label="début des impayés" />
+      <TextField source="début_suspensionPro" label="début des suspensions professionnels" />
+      <TextField source="dureé_CasMedicaux" label="dureé des cas médicaux" />
+      <TextField source="dureé_demenagement" label="dureé des déménagement" />
+      <TextField source="dureé_lignesImpayeesMois" label="dureé des impayés" />
+      <TextField source="dureé_suspensionPro" label="dureé suspensions professionnels" />
     </Datagrid>
   </List>
 );
 
-// Composant de l'édition d'un réglage
-export const CustomSettingsEdit = (props) => (
-  <Edit title="Modifier Réglage" {...props}>
-    <SimpleForm toolbar={<CustomSettingsToolbar />}>
-      <TextInput source="id" label="ID" disabled />
-      <TextInput source="parametre1" label="Paramètre 1" />
-      <TextInput source="parametre2" label="Paramètre 2" />
+// Composant de la liste des réglages
+export const CustomSettingsEdit = () => (
+  <Edit title="Modifier Réglage">
+    <SimpleForm>
+      <TextInput source="début_CasMedicaux" label="début des cas médicaux" />
+      <TextInput source="début_demenagement" label="début des déménagement" />
+      <TextInput source="début_lignesImpayeesMois" label="début des impayés" />
+      <TextInput source="début_suspensionPro" label="début des suspensions professionnels" />
+      <TextInput source="dureé_CasMedicaux" label="dureé des cas médicaux" />
+      <TextInput source="dureé_demenagement" label="dureé des déménagement" />
+      <TextInput source="dureé_lignesImpayeesMois" label="dureé des impayés" />
+      <TextInput source="dureé_suspensionPro" label="dureé suspensions professionnels" />
     </SimpleForm>
   </Edit>
-);
-
-// Composant de la création d'un réglage
-export const CustomSettingsCreate = (props) => (
-  <Create title="Créer Réglage" {...props}>
-    <SimpleForm>
-      <TextInput source="parametre1" label="Paramètre 1" />
-      <TextInput source="parametre2" label="Paramètre 2" />
-    </SimpleForm>
-  </Create>
 );

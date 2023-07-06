@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { List, Datagrid, TextField, FileField } from "react-admin";
 import { useParams } from "react-router-dom";
-import { Chart } from "chart.js";
 import { Box } from "@mui/material";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-
+import { CategoryScale,Chart,Utils, LinearScale,LineElement,PointElement } from "chart.js";
+import { Line } from 'react-chartjs-2';
 export const SimulationList = () => {
   return (
     <Box>
@@ -21,8 +21,8 @@ export const SimulationList = () => {
 };
 
 export const SimulationEdit = () => {
+  const speedCanvasRef = useRef(null);
   const params = useParams(0);
-  const speedCanvasRef = useRef(); 
   // Getting simulation info
   const urlData = {
     url: "Simulations/" + params.id,
@@ -52,48 +52,43 @@ export const SimulationEdit = () => {
     montantTotal =(aboData[i].CasMedicaux +aboData[i].demenagement +aboData[i].lignesImpayeesMois +aboData[i].suspensionPro) *aboData[i].price;
     }
 
-    // le 0 est pour avoir accès au premire valeur du tableau 
+    Chart.register(CategoryScale,LinearScale,LineElement,PointElement);
+
+    const labels = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+    ];
     
-    /*const speedData = {
-      labels: ["0", "10", "20", "30", "40", "50", "60"],
+    const graphData = {
+      labels: labels,
       datasets: [
-      {
-      label: "nb cas",
-        data: [
-        0,
-        for(let i =0;i<aboData.length;i++){
-        aboData[i].CasMedicaux,
-        aboData[i].demenagement,
-        aboData[i].lignesImpayeesMois,
-        aboData[i].suspensionPro,
-        100,
-      ],
-      tension: 0.4,
-      cubicInterpolationMode: "monotone",
-      fill: false,
-      borderColor: "#E64A19",
-      backgroundColor: "transparent",
-      borderDash: [20, 10, 60, 10],
-      pointBorderColor: "#E64A19",
-      pointBackgroundColor: "#FFA726",
-      pointRadius: 5,
-      pointHoverRadius: 10,
-      },
+        {
+          label: "test 1",
+          data: [40,48,56,70,62,68,75,],
+          borderColor: "#E64A19",
+          backgroundColor: "transparent",
+        },
+        {
+          label: "test 2",
+          data: [40,42,47,55,49,52,59,],
+          borderColor: "#ab86d0",
+          backgroundColor: "transparent",
+        },
       ],
     };
 
-    const lineChart = new Chart(speedCanvasRef.current, {
-      type: "line",
-      data: speedData,
-    });*/
-
-
+   
     return (
       <div>
         <p>Montant total : {montantTotal}</p>
-        {/* <Box sx={{ width: "800px" }}>
-          {<canvas ref={speedCanvasRef} /> }
-        </Box> */}
+        { <Box sx={{ width: "800px" }}>
+        <Line data={graphData}/>
+        </Box> }
       </div>
     );
   }

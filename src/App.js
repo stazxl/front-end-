@@ -15,7 +15,7 @@ import jsonServerProvider from 'ra-data-json-server';
 //list et methode 
 import{ FormulairesList, FormulairesShow,FormulairesCreate,FormulairesEdit, } from './Page/formulaires/formulaires.js';
 import { SimulationList,SimulationEdit } from './Page/simulations/simulations';
-
+import {CustomSettingsEdit, CustomSettingsList } from './Page/settings/Settings';
 //Header
 const httpClient = (url, options = {}) => {
 if (!options.headers) {
@@ -37,7 +37,7 @@ function App(){
       {/* <Resource name="Items" create={ItemsCreate} list={ItemsList} show={ItemsShow} edit={ItemsEdit}  /> */}
       <Resource name="formulaires" list={FormulairesList} create={FormulairesCreate} show={FormulairesShow} edit={FormulairesEdit}  />
       <Resource name="simulations" list={SimulationList} edit={SimulationEdit} />
-      {/* <Resource name="settings" list={CustomSettingsList} edit={CustomSettingsEdit} create={CustomSettingsCreate} /> */}
+      { <Resource name="settings" list={CustomSettingsList} edit={CustomSettingsEdit}/> }
     </Admin>
     
   )
